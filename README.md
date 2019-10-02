@@ -5,6 +5,7 @@
  
  ## Features
  Quite efective: time taken to convert all rows of "konstitucija.txt" file to hashcode is 3.49423 s.
+ 
  Changes quite a bit on similar input
  
 |       Input        |                    Output                                        |
