@@ -36,15 +36,38 @@ void toASCII(std::string &data, std::vector<int> &numb)
 
     }
 }
+int allsum(std::string &data)
+{
+    std::vector<int> vec;
+    for(int i=0;i<data.length();i++)
+    {
+        if(isdigit(data[i]))
+        {
+            vec.push_back(data[i]);
+        }
+        else
+        {
+            int t=data[i];
+            vec.push_back(t);
+        }
+    }
+    return (accumulate(vec.begin(),vec.end(),0)%10);
+}
 void gen(std::string &data)
 {
-    to64(data);
+    int sum=allsum(data);
     std::vector<int> numb;
+    to64(data);
     toASCII(data,numb);
+
+    if(sum==0)
+        sum=3;
+
     for(auto &v:numb)
     {
-        v=v*v*v;
-        v=v%100;
+        v=v*sum;
+        v=(v*v*v)%100;
+
     }
 
     for(int i=0;i<numb.size();i++)
@@ -68,17 +91,21 @@ void gen(std::string &data)
         else
         {
             std::stringstream ss;
+            if(numb[i]<0)
+                numb[i]*=-1;
             ss << numb[i];
             std::string str = ss.str();
             char ch=str[0];
             data[i]=ch;
+
         }
+
 
     }
     write(data);
     numb.clear();
 }
-void to64(std::string &data )
+void to64(std::string &data)
 {
 
     int len= data.length();
@@ -97,6 +124,7 @@ void to64(std::string &data )
         data.insert(i,temporary);
         j++;
     }
+
 
     if(len<64)
     {
