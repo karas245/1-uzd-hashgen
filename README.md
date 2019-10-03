@@ -4,9 +4,9 @@
  A simple Hash generator. Turns any input to 64 symbol long string.
  
  ## Features
- Quite efective: time taken to convert all rows of "konstitucija.txt" file to hashcode is 3.49423 s.
+ Ttime taken to convert all rows of "konstitucija.txt" file to hashcode is 3.49423 s.
  
- Changes quite a bit on similar input
+ Changes on similar input :
  
 |       Input        |                    Output                                        |
 | ------------------ | ---------------------------------------------------------------- |
